@@ -1,0 +1,1176 @@
+/* Base Styles */
+body {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+    color: #2c3e50;
+}
+
+/* Navbar Styling */
+.sehat-navbar {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #28a745;
+    padding: 0.8rem 0;
+}
+
+.sehat-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #28a745 !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sehat-brand:hover {
+    color: #1e7e34 !important;
+    transform: scale(1.05);
+}
+
+.sehat-brand .fas {
+    color: #dc3545;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.brand-text {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sehat-nav-link {
+    color: #495057 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sehat-nav-link:hover {
+    color: #28a745 !important;
+    background-color: rgba(40, 167, 69, 0.1);
+    transform: translateY(-2px);
+}
+
+.sehat-nav-link.active {
+    color: #28a745 !important;
+    background-color: rgba(40, 167, 69, 0.15);
+}
+
+.sehat-dropdown {
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.sehat-dropdown .dropdown-item {
+    padding: 0.7rem 1.5rem;
+    color: #495057;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sehat-dropdown .dropdown-item:hover {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    transform: translateX(5px);
+}
+
+.sehat-dropdown .dropdown-item i {
+    color: #28a745;
+    width: 20px;
+}
+
+.sehat-btn-primary {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.sehat-btn-primary:hover {
+    background: linear-gradient(45deg, #218838, #1c7a5a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    color: white;
+}
+
+.sehat-btn-outline {
+    background: transparent;
+    border: 2px solid #28a745;
+    color: #28a745;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.sehat-btn-outline:hover {
+    background-color: #28a745;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .sehat-navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .sehat-brand {
+        font-size: 1.5rem;
+    }
+    
+    .navbar-nav {
+        padding-top: 1rem;
+    }
+    
+    .sehat-nav-link {
+        margin: 0.2rem 0;
+    }
+    
+    .d-flex.gap-2 {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
+    .sehat-btn-primary,
+    .sehat-btn-outline {
+        width: 120px;
+        justify-content: center;
+    }
+}
+
+/* Navbar Toggler Custom Styling */
+.navbar-toggler {
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2840, 167, 69, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Footer Styling */
+.sehat-footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+}
+
+.footer-title {
+    color: #28a745;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-title i {
+    color: #dc3545;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.footer-subtitle {
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-description {
+    color: #bdc3c7;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #28a745;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #28a745;
+}
+
+.footer-contact .contact-item {
+    background: transparent; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #bdc3c7;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none; 
+}
+
+.footer-contact i {
+    color: #28a745;
+    font-size: 1.2rem;
+    margin-right: 0.8rem;
+}
+
+.footer-contact div:hover{
+    background-color: transparent ip !important;
+    color: #28a745;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+.footer-copyright {
+    color: #bdc3c7;
+    margin: 0;
+}
+
+.footer-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .workflow-steps {
+        flex-direction: column;
+    }
+    
+    .workflow-arrow {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn-primary,
+    .cta-btn-secondary {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .footer-badges {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+} 
+
+
+/* Dashboard Header */
+.dashboard-header {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.health-status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-indicator.healthy {
+    background: #28a745;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* Quick Actions */
+.quick-actions {
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.action-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.action-card.emergency {
+    border-color: #dc3545;
+}
+
+.action-card.emergency:hover {
+    background: #fff5f5;
+}
+
+.action-card.telemedicine {
+    border-color: #007bff;
+}
+
+.action-card.telemedicine:hover {
+    background: #f0f8ff;
+}
+
+.action-card.ayurveda {
+    border-color: #28a745;
+}
+
+.action-card.ayurveda:hover {
+    background: #f0fff0;
+}
+
+.action-card.ai-diagnosis {
+    border-color: #6f42c1;
+}
+
+.action-card.ai-diagnosis:hover {
+    background: #f8f5ff;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.emergency .card-icon {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+}
+
+.telemedicine .card-icon {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.ayurveda .card-icon {
+    background: linear-gradient(45deg, #28a745, #1e7e34);
+}
+
+.ai-diagnosis .card-icon {
+    background: linear-gradient(45deg, #6f42c1, #5a2d91);
+}
+
+.action-card h5 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.action-card p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+/* Action Buttons */
+.btn-emergency {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-emergency:hover {
+    background: linear-gradient(45deg, #c82333, #a71e2a);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-telemedicine {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-telemedicine:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-ayurveda {
+    background: linear-gradient(45deg, #28a745, #1e7e34);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-ayurveda:hover {
+    background: linear-gradient(45deg, #1e7e34, #155724);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-ai {
+    background: linear-gradient(45deg, #6f42c1, #5a2d91);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-ai:hover {
+    background: linear-gradient(45deg, #5a2d91, #4a1f7a);
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* Chatbot Widget */
+.sehat-chatbot {
+    position: fixed;
+    right: 24px;
+    bottom: 100px;
+    width: 340px;
+    max-height: 70vh;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1050;
+}
+
+.sehat-chatbot.hidden { display: none; }
+
+.chatbot-header {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: #fff;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#chat-connection-status {
+    background: #fff3cd;
+    color: #856404;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #ffeeba;
+}
+
+.chatbot-header .title { font-weight: 700; }
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.chatbot-body {
+    padding: 12px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    flex: 1;
+}
+
+.chatbot-footer {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid #e9ecef;
+    background: #fff;
+}
+
+.chatbot-input {
+    flex: 1;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.chatbot-fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 1050;
+}
+
+.chat-message { display: flex; margin-bottom: 10px; }
+.chat-message.user { justify-content: flex-end; }
+.chat-message.bot { justify-content: flex-start; }
+.bubble {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 14px;
+    line-height: 1.3;
+    font-size: 0.92rem;
+}
+.user .bubble { background: #dff5e4; color: #1e7e34; border: 1px solid #bfe8c9; }
+.bot .bubble { background: #ffffff; color: #2c3e50; border: 1px solid #e9ecef; }
+
+.bubble .tag { display: inline-block; background: #eef7ff; color: #0d6efd; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; margin-right: 6px; }
+
+@media (max-width: 576px) {
+    .sehat-chatbot { width: calc(100% - 24px); right: 12px; left: 12px; bottom: 88px; }
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f1f3f4;
+}
+
+.section-header h3, .section-header h4 {
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+.section-badge {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.section-badge.ayush-certified {
+    background: linear-gradient(45deg, #ff8c00, #ff6b35);
+}
+
+.section-link {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.section-link:hover {
+    text-decoration: underline;
+}
+
+/* Service Cards */
+.service-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: #28a745;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.video-consultation {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.audio-consultation {
+    background: linear-gradient(45deg, #28a745, #1e7e34);
+}
+
+.text-consultation {
+    background: linear-gradient(45deg, #17a2b8, #117a8b);
+}
+
+.specialist-consultation {
+    background: linear-gradient(45deg, #6f42c1, #5a2d91);
+}
+
+.service-content h5 {
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.service-content p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.service-features li {
+    color: #28a745;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Ayurveda Cards */
+.ayurveda-card {
+    background: linear-gradient(135deg, #fff8f0 0%, #f0fff0 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 2px solid #e8f5e8;
+    transition: all 0.3s ease;
+}
+
+.ayurveda-card:hover {
+    border-color: #28a745;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.15);
+}
+
+.ayurveda-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.ayurveda-card h5 {
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.ayurveda-card p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.ayurveda-features {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.feature-tag {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+/* AYUSH Certification */
+.ayush-certification {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fff3cd 0%, #f0f9ff 100%);
+    border-radius: 12px;
+    border: 2px solid #ffc107;
+}
+
+.certification-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.certification-badge i {
+    font-size: 3rem;
+    color: #ffc107;
+}
+
+.certification-text strong {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.certification-text p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Health Records */
+.health-records {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.record-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.record-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.record-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.record-content h6 {
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.record-content p {
+    color: #6c757d;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.record-date {
+    color: #28a745;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Appointments */
+.appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.appointment-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #28a745;
+    transition: all 0.3s ease;
+}
+
+.appointment-card:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-time {
+    text-align: center;
+    min-width: 80px;
+}
+
+.appointment-time .time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #28a745;
+}
+
+.appointment-time .date {
+    display: block;
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 0.2rem;
+}
+
+.appointment-details h6 {
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.appointment-details p {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.appointment-type {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.appointment-type.video {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+}
+
+.appointment-type.audio {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+/* Health Tips */
+.health-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tip-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    background: #e9ecef;
+}
+
+.tip-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #ffc107, #ff8c00);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.tip-content h6 {
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.tip-content p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Emergency Contacts */
+.emergency-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: #e9ecef;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.contact-icon.emergency {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+}
+
+.contact-icon.doctor {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.contact-details h6 {
+    color: #2c3e50;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+}
+
+.contact-number {
+    color: #28a745;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: 2rem;
+    }
+    
+    .dashboard-header {
+        padding: 1.5rem 0;
+    }
+    
+    .action-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .dashboard-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    
+    .appointment-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .appointment-time {
+        align-self: center;
+    }
+    
+    .health-status {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+/* Ayurvedic Remedies Page (boilermain) */
+.ayurvedic-remedies-page { padding: 2rem 0; background: #f7f9fb; }
+.ayurvedic-page-header { text-align: center; margin-bottom: 2rem; }
+.ayurvedic-page-title { margin: 0; font-weight: 700; color: #1f3b2d; }
+.ayurvedic-page-subtitle { color: #6c7a73; margin: 0.5rem 0 1rem; }
+.addbtn { margin-top: 0.75rem; padding: 0.6rem 1rem; border: none; border-radius: 10px; }
+.addbtn a { color: #fff; text-decoration: none; margin-left: 0.4rem; }
+
+.remedy-card { background: #fff; border: 1px solid #e3e7e5; border-radius: 14px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 6px 14px rgba(0,0,0,0.05); }
+.remedy-header { display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap; }
+.remedy-image { width: 320px; max-width: 100%; height: 200px; object-fit: cover; border-radius: 10px; border: 1px solid #e3e7e5; }
+.remedy-title { margin: 0 0 0.4rem; color: #1f3b2d; }
+.remedy-category { display: inline-block; background: #28a745; color: #fff; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.9rem; }
+.remedy-description { color: #55625c; margin: 0.6rem 0 0; }
+
+.remedy-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.remedy-section { background: #f5faf6; border: 1px solid #e0f0e3; border-radius: 10px; padding: 1rem; }
+.remedy-section-title { margin: 0 0 0.6rem; color: #1f3b2d; font-size: 1.05rem; }
+.remedy-list { margin: 0; padding-left: 1.1rem; color: #3d4a44; }
+.remedy-list li { margin-bottom: 0.35rem; }
+
+.remedy-usage, .remedy-precautions { margin-top: 1rem; border-radius: 10px; padding: 1rem; border: 1px solid #e7ebea; }
+.remedy-usage { background: #f0f7ff; }
+.remedy-precautions { background: #fff7e6; }
+.remedy-text { margin: 0; color: #3d4a44; }
+
+@media (max-width: 576px) {
+    .remedy-card { padding: 1rem; }
+    .remedy-image { height: 180px; }
+}

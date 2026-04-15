@@ -1,0 +1,55 @@
+<% layout("./layouts/boilermain" , {user: user}) -%>
+<div class="row md-3">
+    <div class="col-8 offset-2">
+        <h3>Add New Remedi</h3>
+        <br>
+        <form  action="/ayaush" method="POST" novalidate class="needs-validation" >
+         <div class="mb-3">
+        <label for="title" class="form-lable">Title</label>
+         <input  placeholder="enter title"  type="text" class="form-control"  name="title"  required>
+         <div class="valid-feedback">Title is correct !</div>
+      </div>
+        <div class="mb-3 ">
+        <label for="category " class="form-lable">category </label>
+         <input name="category" placeholder="enter category"  type="text" class="form-control" required>
+         <div class="valid-feedback"> category is correct !</div>
+      </div>
+       <div class="mb-3">
+       <label for="image" class="form-lable"> Upload Remedi Image</label>  
+       <input name="image" type="url" class="form-control" id="image">
+       </div>
+        <div class="mb-3">
+        <label for="description" class="form-lable">description</label>
+         <textarea name="description" placeholder="enter description" class="form-control" required></textarea>
+         <div class="invalid-feedback">pleass enter the short description </div>
+     </div>
+       <div class="row">
+        <div class="mb-3 col-md-4">
+        <label for=" benefits" class="form-lable"> benefits</label>  
+        <textarea name="benefits" placeholder="enter  benefits " type="text" class="form-control" required></textarea>
+        </div>
+        <div class="class=mb-3 col-md-4 ">
+            <label for="  ingredients" class="form-lable">  ingredients</label>  
+        <textarea name="ingredients" placeholder="enter    ingredients " type="text" class="form-control" required></textarea>
+        </div>
+       </div>
+       <div class="mb-3">
+       <label for=" preparation" class="form-lable">  preparation</label>  
+       <input name="preparation" placeholder="enter preparation"  class="form-control">
+        <div class="invalid-feedback">pleass enter the short preparation </div>
+       </div>
+       <div class="mb-3">
+       <label for=" usage" class="form-lable"> usage</label>  
+       <input name="usage" placeholder="enter usage"  class="form-control">
+        <div class="invalid-feedback">pleass enter the usage </div>
+       </div>
+       <div class="mb-3">
+       <label for=" precautions " class="form-lable"> precautions </label>  
+       <input name="precautions" placeholder="enter precautions "  class="form-control">
+        <div class="invalid-feedback">pleass enter the short precautions  </div>
+       </div>
+       <button class="btn btn-dark add-btn mt-3">ADD THIS REMEDI</button>
+        </form>
+    </div>
+</div>
+<br>
