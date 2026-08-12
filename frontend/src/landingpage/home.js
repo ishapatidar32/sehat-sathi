@@ -1,272 +1,162 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import "../style/home.css"; // Imports matching styles
+
+const features = [
+  { icon: "fa-video", title: "Telemedicine Consultations", text: "Connect with certified doctors through video, audio, or text consultations from the comfort of your home." },
+  { icon: "fa-robot", title: "AI-Powered Diagnosis", text: "Advanced AI processes symptoms and provides preliminary diagnosis with triage recommendations." },
+  { icon: "fa-language", title: "Multi-Language Support", text: "Available in Punjabi, Hindi, and English to serve diverse rural communities effectively." },
+  { icon: "fa-pills", title: "Digital Prescription", text: "Receive digital prescriptions and access to verified traditional remedies library." },
+  { icon: "fa-calendar-check", title: "Appointment Management", text: "Easy scheduling and management of appointments with healthcare providers." },
+  { icon: "fa-mobile-alt", title: "Mobile Accessibility", text: "Access healthcare services through phone, ABHA ID, or any mobile device." },
+];
+
+const patientSteps = [
+  { icon: "fa-user-plus", title: "Registration", text: "Patient logs in or registers via phone or ABHA ID" },
+  { icon: "fa-brain", title: "AI Processing", text: "AI processes symptoms through language AI, symptom checker, and triage AI" },
+  { icon: "fa-notes-medical", title: "Symptom Entry", text: "Patient enters symptoms in Punjabi, Hindi, or English" },
+  { icon: "fa-video", title: "Teleconsultation", text: "Patient books appointment and consults with doctor via video, audio, or text" },
+];
+
+const doctorSteps = [
+  { icon: "fa-user-md", title: "Doctor Login", text: "Doctor logs in or registers to the platform" },
+  { icon: "fa-calendar", title: "Manage Appointments", text: "Doctor views and manages appointments" },
+  { icon: "fa-stethoscope", title: "Patient Consultation", text: "Doctor consults with patients via video, audio, or text" },
+  { icon: "fa-prescription", title: "Treatment & Records", text: "Doctor suggests treatments, adds remedies to library, and updates patient records" },
+];
+
+const WorkflowRow = ({ title, steps }) => (
+  <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
+    <h3 className="text-center text-dark font-semibold text-2xl mb-8 relative after:content-[''] after:block after:w-14 after:h-1 after:bg-gradient-to-r after:from-primary after:to-teal after:rounded-full after:mx-auto after:mt-3">
+      {title}
+    </h3>
+    <div className="flex flex-wrap items-center justify-between gap-4">
+      {steps.map((step, i) => (
+        <React.Fragment key={step.title}>
+          <div className="flex-1 min-w-[200px] text-center p-4">
+            <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-teal text-white text-3xl flex items-center justify-center shadow-md">
+              <i className={`fas ${step.icon}`}></i>
+            </div>
+            <h5 className="font-semibold text-dark mb-1">{step.title}</h5>
+            <p className="text-muted text-sm">{step.text}</p>
+          </div>
+          {i < steps.length - 1 && (
+            <div className="text-3xl text-primary font-bold hidden md:block">&rarr;</div>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  </div>
+);
 
 const Home = () => {
   return (
     <div className="sehatsathi-home">
       {/* Hero Section */}
-      <section className="hero-container">
-        <div className="hero-section">
-          <div className="hero-content">
-            <h1 className="hero-title">SehatSathi</h1>
-            <p className="hero-subtitle">
-              Your Digital Healthcare Companion — Connecting Rural Communities to Quality Healthcare
-            </p>
-            <div className="hero-buttons">
-              <Link to="/login" className="hero-btn hero-btn-primary">
-                Login
-              </Link>
-              <Link to="/signup" className="hero-btn hero-btn-secondary">
-                Register
-              </Link>
-            </div>
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-teal relative px-4">
+        <div className="relative z-10 text-center text-white max-w-2xl">
+          <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">SehatSathi</h1>
+          <p className="text-2xl mb-8 drop-shadow-md">
+            Your Digital Healthcare Companion — Connecting Rural Communities to Quality Healthcare
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link to="/login" className="btn-primary !bg-white !text-primary hover:!bg-soft">
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="btn-outline !border-white !text-white hover:!bg-white hover:!text-dark"
+            >
+              Register
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="features-section py-5">
-        <div className="container">
-          <div className="row text-center mb-5">
-            <div className="col-12">
-              <h2 className="section-title">Revolutionizing Rural Healthcare</h2>
-              <p className="section-subtitle">
-                Bridging the gap between patients and quality healthcare through technology
-              </p>
-            </div>
+      <section className="py-20 bg-gradient-to-br from-soft to-[#e9ecef]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Revolutionizing Rural Healthcare</h2>
+            <p className="section-subtitle">
+              Bridging the gap between patients and quality healthcare through technology
+            </p>
           </div>
-          <div className="row g-4">
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="fas fa-video"></i>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((f) => (
+              <div key={f.title} className="card-hover text-center">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-teal text-white text-3xl flex items-center justify-center">
+                  <i className={`fas ${f.icon}`}></i>
                 </div>
-                <h4>Telemedicine Consultations</h4>
-                <p>
-                  Connect with certified doctors through video, audio, or text consultations from the comfort of your home.
-                </p>
+                <h4 className="text-dark font-semibold mb-2">{f.title}</h4>
+                <p className="text-muted leading-relaxed">{f.text}</p>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="fas fa-robot"></i>
-                </div>
-                <h4>AI-Powered Diagnosis</h4>
-                <p>
-                  Advanced AI processes symptoms and provides preliminary diagnosis with triage recommendations.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="fas fa-language"></i>
-                </div>
-                <h4>Multi-Language Support</h4>
-                <p>
-                  Available in Punjabi, Hindi, and English to serve diverse rural communities effectively.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="fas fa-pills"></i>
-                </div>
-                <h4>Digital Prescription</h4>
-                <p>
-                  Receive digital prescriptions and access to verified traditional remedies library.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="fas fa-calendar-check"></i>
-                </div>
-                <h4>Appointment Management</h4>
-                <p>
-                  Easy scheduling and management of appointments with healthcare providers.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="fas fa-mobile-alt"></i>
-                </div>
-                <h4>Mobile Accessibility</h4>
-                <p>
-                  Access healthcare services through phone, ABHA ID, or any mobile device.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Workflow Section */}
-      <section className="workflow-section py-5 bg-light">
-        <div className="container">
-          <div className="row text-center mb-5">
-            <div className="col-12">
-              <h2 className="section-title">How SehatSathi Works</h2>
-              <p className="section-subtitle">
-                Our comprehensive telemedicine platform workflow
-              </p>
-            </div>
+      <section className="py-20 bg-soft">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="section-title">How SehatSathi Works</h2>
+            <p className="section-subtitle">Our comprehensive telemedicine platform workflow</p>
           </div>
-
-          {/* Patient Journey */}
-          <div className="workflow-container mb-5">
-            <h3 className="workflow-title text-center mb-4">Patient Journey</h3>
-            <div className="workflow-steps">
-              <div className="workflow-step">
-                <div className="step-icon patient-step">
-                  <i className="fas fa-user-plus"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Registration</h5>
-                  <p>Patient logs in or registers via phone or ABHA ID</p>
-                </div>
-              </div>
-              <div className="workflow-arrow">&rarr;</div>
-              <div className="workflow-step">
-                <div className="step-icon ai-step">
-                  <i className="fas fa-brain"></i>
-                </div>
-                <div className="step-content">
-                  <h5>AI Processing</h5>
-                  <p>AI processes symptoms through language AI, symptom checker, and triage AI</p>
-                </div>
-              </div>
-              <div className="workflow-arrow">&rarr;</div>
-              <div className="workflow-step">
-                <div className="step-icon symptoms-step">
-                  <i className="fas fa-notes-medical"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Symptom Entry</h5>
-                  <p>Patient enters symptoms in Punjabi, Hindi, or English</p>
-                </div>
-              </div>
-              <div className="workflow-arrow">&rarr;</div>
-              <div className="workflow-step">
-                <div className="step-icon consultation-step">
-                  <i className="fas fa-video"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Teleconsultation</h5>
-                  <p>Patient books appointment and consults with doctor via video, audio, or text</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Doctor Journey */}
-          <div className="workflow-container">
-            <h3 className="workflow-title text-center mb-4">Doctor Journey</h3>
-            <div className="workflow-steps">
-              <div className="workflow-step">
-                <div className="step-icon doctor-step">
-                  <i className="fas fa-user-md"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Doctor Login</h5>
-                  <p>Doctor logs in or registers to the platform</p>
-                </div>
-              </div>
-              <div className="workflow-arrow">&rarr;</div>
-              <div className="workflow-step">
-                <div className="step-icon appointment-step">
-                  <i className="fas fa-calendar"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Manage Appointments</h5>
-                  <p>Doctor views and manages appointments</p>
-                </div>
-              </div>
-              <div className="workflow-arrow">&rarr;</div>
-              <div className="workflow-step">
-                <div className="step-icon consult-step">
-                  <i className="fas fa-stethoscope"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Patient Consultation</h5>
-                  <p>Doctor consults with patients via video, audio, or text</p>
-                </div>
-              </div>
-              <div className="workflow-arrow">&rarr;</div>
-              <div className="workflow-step">
-                <div className="step-icon treatment-step">
-                  <i className="fas fa-prescription"></i>
-                </div>
-                <div className="step-content">
-                  <h5>Treatment &amp; Records</h5>
-                  <p>Doctor suggests treatments, adds remedies to library, and updates patient records</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <WorkflowRow title="Patient Journey" steps={patientSteps} />
+          <WorkflowRow title="Doctor Journey" steps={doctorSteps} />
         </div>
       </section>
 
       {/* About Section */}
-      <section className="about-section py-5">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h2 className="section-title">About SehatSathi</h2>
-              <p className="about-text">
-                SehatSathi is a revolutionary telemedicine platform designed specifically for rural communities.
-                We leverage cutting-edge AI technology and multilingual support to bridge the healthcare gap
-                between urban and rural areas.
-              </p>
-              <p className="about-text">
-                Our platform combines traditional remedies with modern medical practices, ensuring culturally
-                sensitive healthcare delivery that resonates with rural populations while maintaining the
-                highest medical standards.
-              </p>
-              <div className="about-features">
-                <div className="about-feature">
-                  <i className="fas fa-check-circle"></i>
-                  <span>AI-Powered Symptom Analysis</span>
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="section-title">About SehatSathi</h2>
+            <p className="text-muted leading-relaxed mb-4">
+              SehatSathi is a revolutionary telemedicine platform designed specifically for rural
+              communities. We leverage cutting-edge AI technology and multilingual support to bridge
+              the healthcare gap between urban and rural areas.
+            </p>
+            <p className="text-muted leading-relaxed mb-6">
+              Our platform combines traditional remedies with modern medical practices, ensuring
+              culturally sensitive healthcare delivery that resonates with rural populations while
+              maintaining the highest medical standards.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                "AI-Powered Symptom Analysis",
+                "Multi-Language Support",
+                "Traditional & Modern Medicine",
+                "24/7 Healthcare Access",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-dark font-medium">
+                  <i className="fas fa-check-circle text-primary"></i>
+                  <span>{item}</span>
                 </div>
-                <div className="about-feature">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Multi-Language Support</span>
-                </div>
-                <div className="about-feature">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Traditional &amp; Modern Medicine</span>
-                </div>
-                <div className="about-feature">
-                  <i className="fas fa-check-circle"></i>
-                  <span>24/7 Healthcare Access</span>
-                </div>
-              </div>
+              ))}
             </div>
-            <div className="col-lg-6 text-center">
-              <div className="about-image">
-                <i className="fas fa-heartbeat about-icon"></i>
-              </div>
-            </div>
+          </div>
+          <div className="text-center">
+            <i className="fas fa-heartbeat text-primary text-[10rem] animate-heartbeat"></i>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section py-5">
-        <div className="container text-center">
-          <h2 className="cta-title">Ready to Transform Rural Healthcare?</h2>
-          <p className="cta-subtitle">Join thousands of patients and doctors already using SehatSathi</p>
-          <div className="cta-buttons">
-            <Link to="/signup" className="btn cta-btn-primary">
+      <section className="py-20 bg-gradient-to-br from-primary to-teal text-white text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-4">Ready to Transform Rural Healthcare?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join thousands of patients and doctors already using SehatSathi
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link to="/signup" className="btn-primary !bg-white !text-primary hover:!bg-soft">
               Get Started Today
             </Link>
-            <Link to="/about" className="btn cta-btn-secondary">
+            <Link
+              to="/about"
+              className="btn-outline !border-white !text-white hover:!bg-white hover:!text-dark"
+            >
               Learn More
             </Link>
           </div>
