@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../style/home.css";
 
 const features = [
   { icon: "fa-video", title: "Telemedicine Consultations", text: "Connect with certified doctors through video, audio, or text consultations from the comfort of your home." },

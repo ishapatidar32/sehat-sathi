@@ -1,34 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
-  @apply bg-soft text-dark font-sans m-0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center bg-gradient-to-r from-primary to-teal text-white font-semibold px-6 py-2 rounded-full shadow-md shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
-  }
-  .btn-outline {
-    @apply inline-flex items-center border-2 border-primary text-primary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-0.5;
-  }
-  .brand-text {
-    @apply bg-gradient-to-r from-primary to-teal bg-clip-text text-transparent font-bold;
-  }
-  .card-hover {
-    @apply bg-white rounded-2xl shadow-md p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 border-transparent hover:border-primary;
-  }
-  .section-title {
-    @apply text-4xl font-bold text-dark mb-4;
-  }
-  .section-subtitle {
-    @apply text-xl text-muted mb-8;
-  }
-  .navbar-shell {
-    @apply bg-gradient-to-br from-white to-soft shadow-md border-b-[3px] border-primary py-3;
-  }
-  .footer-shell {
-    @apply bg-gradient-to-br from-dark to-[#34495e] text-white py-12;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav-link{
+  margin-left: 40px;
+}
+
+#supportHero{
+  background-color: rgb(56, 126, 209);
+  color: white;
+}
+
+#supportHero a{
+  color: white;
+}
+
+#supportWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+}
+
+#supportHero input{
+  padding: 20px 50px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
 }

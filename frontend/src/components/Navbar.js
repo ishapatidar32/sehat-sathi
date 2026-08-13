@@ -45,12 +45,6 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4 shrink-0">
           <Link
-            to="/doctor/login"
-            className="hidden sm:flex items-center gap-1 px-3 py-2 rounded-full text-sm text-muted font-medium hover:bg-soft hover:text-primary transition-colors"
-          >
-            <i className="fas fa-user-md"></i> Doctor Login
-          </Link>
-          <Link
             to="/login"
             className="flex items-center gap-1 px-4 py-2 rounded-full text-dark font-medium hover:bg-soft hover:text-primary transition-colors"
           >
