@@ -10,30 +10,33 @@ const features = [
   { icon: "fa-mobile-alt", title: "Mobile Accessibility", text: "Access healthcare services through phone, ABHA ID, or any mobile device." },
 ];
 
+const stepColors = ["bg-red-500", "bg-cyan-600", "bg-amber-500", "bg-purple-500"];
 const patientSteps = [
   { icon: "fa-user-plus", title: "Registration", text: "Patient logs in or registers via phone or ABHA ID" },
-  { icon: "fa-brain", title: "AI Processing", text: "AI processes symptoms through language AI, symptom checker, and triage AI" },
+  { icon: "fa-microchip", title: "AI Processing", text: "AI processes symptoms through language AI, symptom checker, and triage AI" },
   { icon: "fa-notes-medical", title: "Symptom Entry", text: "Patient enters symptoms in Punjabi, Hindi, or English" },
   { icon: "fa-video", title: "Teleconsultation", text: "Patient books appointment and consults with doctor via video, audio, or text" },
 ];
 
 const doctorSteps = [
   { icon: "fa-user-md", title: "Doctor Login", text: "Doctor logs in or registers to the platform" },
-  { icon: "fa-calendar", title: "Manage Appointments", text: "Doctor views and manages appointments" },
+  { icon: "fa-calendar-check", title: "Manage Appointments", text: "Doctor views and manages appointments" },
   { icon: "fa-stethoscope", title: "Patient Consultation", text: "Doctor consults with patients via video, audio, or text" },
   { icon: "fa-prescription", title: "Treatment & Records", text: "Doctor suggests treatments, adds remedies to library, and updates patient records" },
 ];
 
 const WorkflowRow = ({ title, steps }) => (
   <div className="bg-white rounded-2xl shadow-lg p-8 mb-10">
-    <h3 className="text-center text-dark font-semibold text-2xl mb-8 relative after:content-[''] after:block after:w-14 after:h-1 after:bg-gradient-to-r after:from-primary after:to-teal after:rounded-full after:mx-auto after:mt-3">
+    <h3 className="text-center text-dark font-semibold text-2xl mb-8 relative after:content-[''] after:block after:w-14 after:h-1 after:bg-primary after:rounded-full after:mx-auto after:mt-3">
       {title}
     </h3>
     <div className="flex flex-wrap items-center justify-between gap-4">
       {steps.map((step, i) => (
         <React.Fragment key={step.title}>
           <div className="flex-1 min-w-[200px] text-center p-4">
-            <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-teal text-white text-3xl flex items-center justify-center shadow-md">
+            <div
+              className={`w-20 h-20 mx-auto mb-4 rounded-full ${stepColors[i % stepColors.length]} text-white text-3xl flex items-center justify-center shadow-md`}
+            >
               <i className={`fas ${step.icon}`}></i>
             </div>
             <h5 className="font-semibold text-dark mb-1">{step.title}</h5>
@@ -52,14 +55,18 @@ const Home = () => {
   return (
     <div className="sehatsathi-home">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-teal relative px-4">
+      <section
+        className="min-h-screen flex items-center justify-center relative bg-cover bg-center px-4"
+        style={{ backgroundImage: "url('/healthcare-bg.jpg.png')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-center text-white max-w-2xl">
           <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">SehatSathi</h1>
           <p className="text-2xl mb-8 drop-shadow-md">
             Your Digital Healthcare Companion — Connecting Rural Communities to Quality Healthcare
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/login" className="btn-primary !bg-white !text-primary hover:!bg-soft">
+            <Link to="/login" className="btn-primary">
               Login
             </Link>
             <Link
