@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
   },
   phone: String,
   isVerified: { type: Boolean, default: false }, // consistent casing
+  refreshTokenHash: { type: String, select: false } // store hashed refresh token for security
 }, baseOptions);
 
 const User = mongoose.model("User", userSchema);

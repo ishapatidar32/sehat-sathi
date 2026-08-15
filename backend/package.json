@@ -1,8 +1,10 @@
 {
+  "type": "module",
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.9.2", 
-    "type" : "module"
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.2",
+    "nodemailer": "^9.0.5"
   }
 }
