@@ -3,6 +3,7 @@ import axios from "axios";
 // Backend ka base URL — coworker se exact port confirm kar lena (usually 5000)
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8000/api",
+  withCredentials: true,
 });
 
 // Har request ke saath automatically token attach ho jayega

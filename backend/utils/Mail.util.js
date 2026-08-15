@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import config from "../çonfig/config.js";
+import config from "../config/config.js";
 // Works with Gmail SMTP (free, use an App Password, not your real password)
 // or swap host/port for Brevo / Resend SMTP if you outgrow Gmail's sending limits.
 const transporter = nodemailer.createTransport({
@@ -19,14 +19,21 @@ export async function sendOtpEmail(toEmail, otp, purpose) {
       ? "Verify your Sehat Sathi account"
       : "Your Sehat Sathi login code";
 
-  await transporter.sendMail({
-    from: `"Sehat Sathi" <${config.SMTP_EMAIL}>`,
-    to: toEmail,
-    subject,
-    html: `
-      <p>Your one-time code is:</p>
-      <h2 style="letter-spacing: 4px;">${otp}</h2>
-      <p>This code expires in 5 minutes. Do not share it with anyone.</p>
-    `,
-  });
+  try {
+    const info = await transporter.sendMail({
+      from: `"Sehat Sathi" <${config.SMTP_EMAIL}>`,
+      to: toEmail,
+      subject,
+      html: `
+        <p>Your one-time code is:</p>
+        <h2 style="letter-spacing: 4px;">${otp}</h2>
+        <p>This code expires in 5 minutes. Do not share it with anyone.</p>
+      `,
+    });
+    console.log("✅ Email sent successfully:", info.messageId, info.response);
+  } catch (err) {
+    console.error("❌ Email sending FAILED for:", toEmail);
+    console.error("Error message:", err.message);
+    console.error("Full error:", err);
+  }
 }
