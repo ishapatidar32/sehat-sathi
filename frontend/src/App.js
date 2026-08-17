@@ -5,6 +5,9 @@ import Home from './landingpage/home';
 import AuthForm from './landingpage/AuthForm';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AdminLogin from "./admin/AdminLogin";
+import AdminDashboard from "./admin/AdminDashboard";
+import ProtectedAdminRoute from "./admin/ProtectedAdminRoute";
 
 function App() {
   return (
@@ -14,6 +17,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<AuthForm />} />
         <Route path="/signup" element={<AuthForm />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+  path="/admin/dashboard"
+  element={
+    <ProtectedAdminRoute>
+      <AdminDashboard />
+    </ProtectedAdminRoute>
+  }
+/>
       </Routes>
       <Footer />
     </BrowserRouter>

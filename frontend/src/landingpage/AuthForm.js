@@ -101,6 +101,12 @@ const AuthForm = () => {
 
     try {
       const res = await axiosInstance.post("/auth/registration", payload);
+
+      if (res.data.pendingApproval) {
+        setStatus({ loading: false, message: res.data.message });
+        return; // doctor ko redirect mat karo, yahin rok do
+      }
+
       saveSession(res.data.accessToken, res.data.user);
       setStatus({ loading: false, message: "Account created! Redirecting..." });
       setTimeout(() => redirectAfterAuth(res.data.user.role), 1000);

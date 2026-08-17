@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const baseOptions = {
   discriminatorKey: "role",
   collection: "users",
-  timestamps: true // moved here so all roles get createdAt/updatedAt
+  timestamps: true
 };
 
 const userSchema = new mongoose.Schema({
@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
     trim: true
   },
   phone: String,
-  isVerified: { type: Boolean, default: false }, // consistent casing
-  refreshTokenHash: { type: String, select: false } // store hashed refresh token for security
+  isVerified: { type: Boolean, default: false },
+  refreshTokenHash: { type: String, select: false }
 }, baseOptions);
 
 const User = mongoose.model("User", userSchema);
@@ -38,8 +38,9 @@ const Doctor = User.discriminator("Doctor", new mongoose.Schema({
   verificationStatus: {
     type: String,
     enum: ["pending", "approved", "rejected"],
-    default: "pending"
+    default: "pending",
   },
+  rejectionReason: { type: String, default: "" },
 }));
 
 const Patient = User.discriminator("Patient", new mongoose.Schema({
@@ -59,4 +60,8 @@ const Patient = User.discriminator("Patient", new mongoose.Schema({
   emergencyContactPhone: { type: String },
 }));
 
-export { User, Doctor, Patient };
+const Admin = User.discriminator("Admin", new mongoose.Schema({
+  password: { type: String, required: true, select: false },
+}));
+
+export { User, Doctor, Patient, Admin };

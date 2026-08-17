@@ -57,7 +57,8 @@ export async function requestOtp(req, res) {
  * Two outcomes depending on whether the email already belongs to an account:
  *  - New email  -> issues a short-lived "registrationTicket" so the frontend
  *                  can now safely reveal the role + profile form.
- *  - Existing email -> this IS the login step, issues real access/refresh tokens directly.
+ *  - Existing email -> this IS the login step, issues real access/refresh tokens directly
+ *                       (unless it's an unapproved doctor account).
  */
 export async function verifyOtp(req, res) {
   try {
@@ -84,6 +85,17 @@ export async function verifyOtp(req, res) {
     const existingUser = await User.findOne({ email: normalizedEmail });
 
     if (existingUser) {
+      // Doctors must be admin-approved before they can log in
+      if (existingUser.role === "Doctor" && existingUser.verificationStatus !== "approved") {
+        return res.status(403).json({
+          message:
+            existingUser.verificationStatus === "rejected"
+              ? `Your application was rejected. Reason: ${existingUser.rejectionReason || "Not specified"}`
+              : "Your account is pending admin verification.",
+          pendingApproval: true,
+        });
+      }
+
       // This was a LOGIN flow — user already has an account, log them in now
       const accessToken = signAccessToken(existingUser);
       const refreshToken = signRefreshToken(existingUser);
@@ -156,6 +168,14 @@ export async function completeRegistration(req, res) {
       ...roleFields,
       isVerified: true, // email was already confirmed via OTP in step 2
     });
+
+    // Doctor accounts need admin approval before they can log in
+    if (role === "doctor") {
+      return res.status(201).json({
+        message: "Registration submitted! Your account is pending admin verification.",
+        pendingApproval: true,
+      });
+    }
 
     const accessToken = signAccessToken(newUser);
     const refreshToken = signRefreshToken(newUser);
