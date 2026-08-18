@@ -39,11 +39,12 @@ const AuthForm = () => {
     localStorage.setItem("name", user.name);
   };
 
-  const redirectAfterAuth = (role) => {
-    if (role === "doctor") navigate("/doctor/dashboard");
-    else if (role === "patient") navigate("/patient/dashboard");
-    else navigate("/");
-  };
+const redirectAfterAuth = (role) => {
+  const normalizedRole = role?.toLowerCase();
+  if (normalizedRole === "doctor") navigate("/doctor/dashboard");
+  else if (normalizedRole === "patient") navigate("/patient/dashboard");
+  else navigate("/");
+};
 
   // ---------- Step 1: Request OTP (login ya register — backend khud decide karega) ----------
   const handleRequestOtp = async (e) => {
