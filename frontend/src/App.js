@@ -6,7 +6,7 @@ import AuthForm from './landingpage/AuthForm';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AdminLogin from "./admin/AdminLogin";
-import AdminDashboard from "./admin/AdminDashboard"
+import AdminDashboard from "./admin/AdminDashboard";
 import ProtectedAdminRoute from "./admin/ProtectedAdminRoute";
 
 function App() {
