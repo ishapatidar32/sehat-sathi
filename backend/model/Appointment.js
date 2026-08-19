@@ -20,4 +20,4 @@ appointmentSchema.index(
   { unique: true, partialFilterExpression: { status: 'confirmed' } }
 );
 
-module.exports = mongoose.model('Appointment', appointmentSchema);
+export const Appointment = mongoose.model('Appointment', appointmentSchema);

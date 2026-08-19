@@ -9,4 +9,4 @@ const doctorLeaveSchema = new mongoose.Schema({
 
 doctorLeaveSchema.index({ doctorId: 1, date: 1 }, { unique: true });
 
-module.exports = mongoose.model('DoctorLeave', doctorLeaveSchema);
+export const DoctorLeave  = mongoose.model('DoctorLeave', doctorLeaveSchema);

@@ -12,4 +12,4 @@ const doctorAvailabilitySchema = new mongoose.Schema({
 
 doctorAvailabilitySchema.index({ doctorId: 1, dayOfWeek: 1 });
 
-module.exports = mongoose.model('DoctorAvailability', doctorAvailabilitySchema);
+ export const DoctorAvailability  = mongoose.model('DoctorAvailability', doctorAvailabilitySchema);
